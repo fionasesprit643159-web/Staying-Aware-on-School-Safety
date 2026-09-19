@@ -1,1 +1,1 @@
-# Saftey is better than shooting
+# Safety is better than shooting
