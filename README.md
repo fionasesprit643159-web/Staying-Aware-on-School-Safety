@@ -1,1 +1,3 @@
-# Safety is better than shooting
+# Hello, World!
+
+A small, dependency-free web app. Open `index.html` in a browser to run it.
