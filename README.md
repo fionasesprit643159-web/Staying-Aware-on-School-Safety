@@ -1,1 +1,1 @@
-# Shooting-Up-Schools
+# Saftey is better than shooting
