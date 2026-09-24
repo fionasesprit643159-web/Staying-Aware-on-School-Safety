@@ -1,3 +1,3 @@
-# Hello, World!
+# Classroom Room Map
 
-A small, dependency-free web app. Open `index.html` in a browser to run it.
+A responsive, dependency-free bird's-eye classroom layout. Open `index.html` in a browser to run it.

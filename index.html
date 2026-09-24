@@ -3,18 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="A friendly interactive Hello World web app." />
-    <title>Hello, World!</title>
+    <meta name="description" content="Bird's-eye classroom room map." />
+    <title>Room Map</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="card">
-      <p class="eyebrow">YOUR FIRST WEB APP</p>
-      <div class="orb" aria-hidden="true"><span>✦</span></div>
-      <h1 id="greeting">Hello, World!</h1>
-      <p class="subtitle">A small beginning with plenty of room to grow.</p>
-      <button id="greet-button" type="button">Say hello back <span aria-hidden="true">→</span></button>
-      <p id="message" class="message" aria-live="polite"></p>
+    <main class="app-shell">
+      <header>
+        <p class="eyebrow">ROOM MAP</p>
+        <h1>Classroom layout</h1>
+        <p>Bird’s-eye view · Front of room at the bottom</p>
+      </header>
+
+      <section class="room" aria-label="Classroom layout">
+        <button class="door" type="button" aria-pressed="false" aria-label="Close door"><span>Door</span></button>
+        <button class="cabinet cabinet-one" type="button" aria-expanded="false" aria-label="Open cabinet 1"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 1</span></button>
+        <button class="cabinet cabinet-two" type="button" aria-expanded="false" aria-label="Open cabinet 2"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 2</span></button>
+        <button class="cabinet cabinet-three" type="button" aria-expanded="false" aria-label="Open cabinet 3"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 3</span></button>
+        <button class="cabinet cabinet-four" type="button" aria-expanded="false" aria-label="Open cabinet 4"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 4</span></button>
+        <div class="tv" role="img" aria-label="TV along the front wall"><span>TV</span></div>
+        <div class="window window-top" role="img" aria-label="Window on the right wall"><span>Window</span></div>
+        <div class="window window-bottom" role="img" aria-label="Window on the right wall"></div>
+
+        <div class="desks" aria-label="Twenty student desks">
+          <button class="desk" type="button" aria-label="Desk 1"></button><button class="desk" type="button" aria-label="Desk 2"></button><button class="desk" type="button" aria-label="Desk 3"></button><button class="desk" type="button" aria-label="Desk 4"></button><button class="desk" type="button" aria-label="Desk 5"></button>
+          <button class="desk" type="button" aria-label="Desk 6"></button><button class="desk" type="button" aria-label="Desk 7"></button><button class="desk" type="button" aria-label="Desk 8"></button><button class="desk" type="button" aria-label="Desk 9"></button><button class="desk" type="button" aria-label="Desk 10"></button>
+          <button class="desk" type="button" aria-label="Desk 11"></button><button class="desk" type="button" aria-label="Desk 12"></button><button class="desk" type="button" aria-label="Desk 13"></button><button class="desk" type="button" aria-label="Desk 14"></button><button class="desk" type="button" aria-label="Desk 15"></button>
+          <button class="desk" type="button" aria-label="Desk 16"></button><button class="desk" type="button" aria-label="Desk 17"></button><button class="desk" type="button" aria-label="Desk 18"></button><button class="desk" type="button" aria-label="Desk 19"></button><button class="desk" type="button" aria-label="Desk 20"></button>
+        </div>
+      </section>
+
+      <aside class="legend" aria-label="Map legend">
+        <span><i class="swatch desk-swatch"></i>Desk</span>
+        <span><i class="swatch door-swatch"></i>Door</span>
+        <span><i class="swatch cabinet-swatch"></i>Cabinet</span>
+        <span><i class="swatch tv-swatch"></i>TV</span>
+        <span><i class="swatch window-swatch"></i>Window</span>
+      </aside>
     </main>
     <script src="script.js"></script>
   </body>
