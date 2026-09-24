@@ -19,7 +19,7 @@ body {
 
 .start-page {
   display: grid;
-  gap: 2rem;
+  gap: 1.25rem;
   justify-items: center;
   width: min(90%, 38rem);
   padding: 4rem 2.5rem;
@@ -28,9 +28,16 @@ body {
 
 h1 {
   margin: 0;
-  font-size: clamp(3rem, 12vw, 7rem);
+  font-size: clamp(2rem, 8vw, 5rem);
   font-weight: 800;
   letter-spacing: -0.07em;
+}
+
+p {
+  margin: 0;
+  font-size: clamp(0.5rem, 3vw, 1rem);
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 button {
@@ -49,17 +56,17 @@ button {
 }
 
 button:hover {
-  background: #5167a2;
+  background: #929c62;
   transform: translateY(-2px);
   box-shadow: 0 0.5rem 1.25rem rgb(23 32 51 / 20%);
 }
 
 button:focus-visible {
-  outline: 3px solid #5167a2;
+  outline: 3px solid #929c62;
   outline-offset: 3px;
 }
 
-button-2 {
+button {
   min-width: 10rem;
   padding: 0.9rem 1.5rem;
   color: #2e3118;
@@ -75,8 +82,26 @@ button-2 {
 
 }
 
-button-2:hover {
-  background: #5167a2;
+button:hover {
+  background: #929c62;
   transform: translateY(-2px);
   box-shadow: 0 0.5rem 1.25rem rgb(23 32 51 / 20%);
+}
+
+.next-page {
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+  width: min(90%, 38rem);
+  padding: 4rem 2.5rem;
+  text-align: center;
+}
+
+.info-page {
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+  width: min(90%, 38rem);
+  padding: 4rem 2.5rem;
+  text-align: center;
 }
