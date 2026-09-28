@@ -1,0 +1,102 @@
+:root {
+  background: #fff;
+  color: #111;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: clamp(1.25rem, 5vw, 4rem);
+  background-color: #fff;
+  background-image: radial-gradient(#c7c7c7 1.5px, transparent 1.6px);
+  background-size: 3.15rem 3.15rem;
+}
+
+.bathroom-map { width: min(100%, 84rem); aspect-ratio: 1.55 / 1; }
+
+.bathroom {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  border: clamp(.35rem, .7vw, .62rem) solid #080808;
+  background: rgb(255 255 255 / 88%);
+}
+
+.stalls {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 42%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border-bottom: clamp(.3rem, .55vw, .48rem) solid #080808;
+}
+
+.stall { position: relative; border-right: clamp(.3rem, .55vw, .48rem) solid #080808; }
+.stall:last-child { border-right: 0; }
+
+.stall-door {
+  position: absolute;
+  z-index: 1;
+  left: 8%;
+  right: 8%;
+  bottom: clamp(-.78rem, -1vw, -.5rem);
+  min-height: clamp(2.3rem, 5vw, 4.2rem);
+  display: grid;
+  place-items: center;
+  color: #111;
+  background: #58bce9;
+  font-size: clamp(.62rem, 1.35vw, 1.16rem);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.sinks {
+  position: absolute;
+  left: 5%;
+  right: 28%;
+  bottom: -1.3%;
+  height: 14%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 5vw, 5.5rem);
+}
+
+.sink {
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  color: #111;
+  background: #58bce9;
+  font-size: clamp(.8rem, 2vw, 1.75rem);
+  font-weight: 700;
+}
+
+.main-door {
+  position: absolute;
+  right: 2%;
+  bottom: -3.1%;
+  width: 22%;
+  height: 8.5%;
+  display: grid;
+  place-items: center;
+  color: #111;
+  background: #58bce9;
+  font-size: clamp(.7rem, 1.55vw, 1.25rem);
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  body { padding: 1rem; background-size: 2rem 2rem; }
+  .bathroom-map { aspect-ratio: .86 / 1; }
+  .stalls { height: 38%; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); }
+  .stall:nth-child(3) { border-right: 0; }
+  .stall:nth-child(-n + 3) { border-bottom: .3rem solid #080808; }
+  .sinks { left: 7%; right: 7%; bottom: 5%; height: 9%; gap: .65rem; }
+  .main-door { right: 5%; bottom: -1.5%; width: 28%; height: 6%; }
+}
