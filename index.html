@@ -3,45 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Bird's-eye classroom room map." />
-    <title>Room Map</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta name="description" content="Landing page for the Shooting Safety app." />
+    <title>Shooting Safety</title>
+    <link rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
-    <main class="app-shell">
-      <header>
-        <p class="eyebrow">ROOM MAP</p>
-        <h1>Classroom layout</h1>
-        <p>Bird’s-eye view · Front of room at the bottom</p>
-      </header>
-
-      <section class="room" aria-label="Classroom layout">
-        <button class="door" type="button" aria-pressed="false" aria-label="Close door"><span>Door</span></button>
-        <button class="light-switch" type="button" aria-pressed="true" aria-label="Turn lights off"><span aria-hidden="true"></span></button>
-        <button class="cabinet cabinet-one" type="button" aria-expanded="false" aria-label="Open cabinet 1"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 1</span></button>
-        <button class="cabinet cabinet-two" type="button" aria-expanded="false" aria-label="Open cabinet 2"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 2</span></button>
-        <button class="cabinet cabinet-three" type="button" aria-expanded="false" aria-label="Open cabinet 3"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 3</span></button>
-        <button class="cabinet cabinet-four" type="button" aria-expanded="false" aria-label="Open cabinet 4"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 4</span></button>
-        <div class="tv" role="img" aria-label="TV along the front wall"><span>TV</span></div>
-        <div class="window window-top" role="img" aria-label="Window on the right wall"><span>Window</span></div>
-        <div class="window window-bottom" role="img" aria-label="Window on the right wall"></div>
-
-        <div class="desks" aria-label="Twenty student desks">
-          <button class="desk" type="button" aria-label="Desk 1"></button><button class="desk" type="button" aria-label="Desk 2"></button><button class="desk" type="button" aria-label="Desk 3"></button><button class="desk" type="button" aria-label="Desk 4"></button><button class="desk" type="button" aria-label="Desk 5"></button>
-          <button class="desk" type="button" aria-label="Desk 6"></button><button class="desk" type="button" aria-label="Desk 7"></button><button class="desk" type="button" aria-label="Desk 8"></button><button class="desk" type="button" aria-label="Desk 9"></button><button class="desk" type="button" aria-label="Desk 10"></button>
-          <button class="desk" type="button" aria-label="Desk 11"></button><button class="desk" type="button" aria-label="Desk 12"></button><button class="desk" type="button" aria-label="Desk 13"></button><button class="desk" type="button" aria-label="Desk 14"></button><button class="desk" type="button" aria-label="Desk 15"></button>
-          <button class="desk" type="button" aria-label="Desk 16"></button><button class="desk" type="button" aria-label="Desk 17"></button><button class="desk" type="button" aria-label="Desk 18"></button><button class="desk" type="button" aria-label="Desk 19"></button><button class="desk" type="button" aria-label="Desk 20"></button>
-        </div>
-      </section>
-
-      <aside class="legend" aria-label="Map legend">
-        <span><i class="swatch desk-swatch"></i>Desk</span>
-        <span><i class="swatch door-swatch"></i>Door</span>
-        <span><i class="swatch cabinet-swatch"></i>Cabinet</span>
-        <span><i class="swatch tv-swatch"></i>TV</span>
-        <span><i class="swatch window-swatch"></i>Window</span>
-      </aside>
+    <main class="start-page">
+      <h1>Shooting Safety</h1>
+      <p>Welcome to the Shooting Safety app! Click Start to begin. Click the question mark for more information.</p>
+      <button type="button" id="start-button">Start</button>
+      <button type="button" id="info-button">?</button>
     </main>
-    <script src="script.js"></script>
+    <script src="scripts/app.js"></script>
   </body>
 </html>

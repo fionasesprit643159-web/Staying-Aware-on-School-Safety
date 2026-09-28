@@ -4,7 +4,7 @@
 const startButton = document.querySelector('#start-button');
 if (startButton) {
   startButton.addEventListener('click', () => {
-    window.location.href = 'second-page.html';
+    window.location.href = 'pages/map-selector.html';
   });
 }
 
@@ -12,7 +12,7 @@ if (startButton) {
 const infoButton = document.querySelector('#info-button');
 if (infoButton) {
   infoButton.addEventListener('click', () => {
-    window.location.href = 'information-page.html';
+    window.location.href = 'pages/information.html';
   });
 }
 
@@ -20,6 +20,6 @@ if (infoButton) {
 const backButton = document.querySelector('#back-button');
 if (backButton) {
   backButton.addEventListener('click', () => {
-  window.location.href = 'first-page.html';
+  window.location.href = '../index.html';
 });
 }
