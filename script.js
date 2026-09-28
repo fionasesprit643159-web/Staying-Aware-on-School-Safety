@@ -44,12 +44,26 @@ desks.forEach((desk) => {
   });
 });
 
-document.querySelectorAll('.cabinet').forEach((cabinet) => {
+const cabinets = document.querySelectorAll('.cabinet');
+
+function resetCabinets() {
+  cabinets.forEach((cabinet) => {
+    const number = cabinet.textContent.trim();
+    cabinet.classList.remove('is-open');
+    cabinet.setAttribute('aria-expanded', 'false');
+    cabinet.setAttribute('aria-label', `Open ${number.toLowerCase()} doors`);
+  });
+}
+
+resetCabinets();
+window.addEventListener('pageshow', resetCabinets);
+
+cabinets.forEach((cabinet) => {
   cabinet.addEventListener('click', () => {
     const isOpen = cabinet.classList.toggle('is-open');
     const number = cabinet.textContent.trim();
     cabinet.setAttribute('aria-expanded', String(isOpen));
-    cabinet.setAttribute('aria-label', `${isOpen ? 'Close' : 'Open'} ${number.toLowerCase()}`);
+    cabinet.setAttribute('aria-label', `${isOpen ? 'Close' : 'Open'} ${number.toLowerCase()} doors`);
   });
 });
 
@@ -59,4 +73,13 @@ door.addEventListener('click', () => {
   const isClosed = door.classList.toggle('is-closed');
   door.setAttribute('aria-pressed', String(isClosed));
   door.setAttribute('aria-label', isClosed ? 'Open door' : 'Close door');
+});
+
+const room = document.querySelector('.room');
+const lightSwitch = document.querySelector('.light-switch');
+
+lightSwitch.addEventListener('click', () => {
+  const lightsAreOn = !room.classList.toggle('lights-off');
+  lightSwitch.setAttribute('aria-pressed', String(lightsAreOn));
+  lightSwitch.setAttribute('aria-label', lightsAreOn ? 'Turn lights off' : 'Turn lights on');
 });
