@@ -8,7 +8,17 @@
     <link rel="stylesheet" href="outdoor-layout.css" />
   </head>
   <body>
-    <main class="site-plan" aria-label="Outdoor site layout">
+    <div class="quad-timer" role="timer" aria-label="Countdown timer">
+      <span class="quad-timer-value" id="timer-value">--:--</span>
+    </div>
+    <div class="map-controls" role="group" aria-label="Map zoom controls">
+      <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
+      <output id="zoom-level" aria-live="polite">100%</output>
+      <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+      <button type="button" id="reset-view">Reset</button>
+    </div>
+    <div class="map-viewport" id="map-viewport" role="region" aria-label="Quad map. Drag the map to pan when zoomed in.">
+      <main class="site-plan" aria-label="Outdoor site layout">
       <section class="grounds" aria-label="Enclosed outdoor area">
         <div class="tree tree-top-left" role="img" aria-label="Tree canopy"><span>Tree</span></div>
         <div class="tree tree-bottom-left" role="img" aria-label="Tree canopy"><span>Tree</span></div>
@@ -25,6 +35,9 @@
 
       <div class="gate gate-left" role="img" aria-label="Gate">Gate</div>
       <div class="gate gate-right" role="img" aria-label="Gate">Gate</div>
-    </main>
+      </main>
+    </div>
+    <script src="quad-timer.js"></script>
+    <script src="quad-map.js"></script>
   </body>
 </html>
