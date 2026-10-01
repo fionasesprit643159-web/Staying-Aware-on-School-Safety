@@ -1,18 +1,19 @@
-# Shooting Safety practice app
+# Shooting Safety
 
-This is a small, responsive browser app with a welcome screen, a guided practice screen, and the reflection/end screen. The reflection note is stored only in the browser on the device where it is entered.
+A dependency-free browser app for exploring the Shooting Safety landing flow and its classroom, bathroom, outdoor, and simulation maps. It also includes a simulator completion page with reflection and feedback.
 
-## Open it
+## Structure
 
-Open `end-page.html` in a browser to use the app.
+- `index.html` — app landing page
+- `pages/` — information, map-selection, map, and end-of-simulation pages
+- `styles/` — page stylesheets
+- `scripts/` — navigation and interaction scripts
+- `assets/images/` — image assets
+- `end-page.html` — simulator completion, reflection, and feedback page
+- `manifest.webmanifest` and `sw.js` — installable/offline app support
 
-To enable installable/offline PWA behavior, serve this folder from `localhost` or an HTTPS host (service workers do not run from `file://`). Keep `end-page.html`, `manifest.webmanifest`, and `sw.js` together in the same folder.
+## Run it
 
-## Simulator feedback integration
+Serve this folder from `localhost` or an HTTPS host to use service-worker features. For example, run `python3 -m http.server 8000` and open `http://localhost:8000`.
 
-Before opening the end page, the simulator can pass an outcome in either of these ways:
-
-- Open `end-page.html?performance=needs-practice` or `end-page.html?performance=confident`.
-- Set `localStorage.setItem('simulatorPerformance', 'needs-practice')` or `localStorage.setItem('simulatorPerformance', 'confident')` before navigating to the end page.
-
-The page also accepts `low` / `bad` as `needs-practice`, and `good` / `high` / `strong` as `confident`. If no outcome is passed, the user can choose a reflection option on the page.
+The completion page can receive a simulator outcome through `end-page.html?performance=needs-practice` or `end-page.html?performance=confident`. The simulator may also set `localStorage.setItem('simulatorPerformance', 'needs-practice')` or `localStorage.setItem('simulatorPerformance', 'confident')` before navigating to `end-page.html`.

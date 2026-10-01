@@ -1,0 +1,29 @@
+body {
+    font-family: sans-serif;
+    color: #c46428;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 30px;
+    background-color: #e8e2c5;
+}
+
+div.mapBox {
+    width: 600px;
+    height: 400px;
+    padding: 10px;
+    margin: 0 auto;
+    border: 2px solid #c46428;
+    background-color: #f5f5dc;
+    transform: translateY(-15px);
+}
+
+button{
+    padding: 10px 30px;
+    font-family: sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #60693a;
+    color: black;
+    border: none;
+    border-radius: 5px;
+}
