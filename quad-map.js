@@ -4,15 +4,11 @@ const zoomLevel = document.querySelector('#zoom-level');
 const zoomInButton = document.querySelector('#zoom-in');
 const zoomOutButton = document.querySelector('#zoom-out');
 const resetButton = document.querySelector('#reset-view');
-const tablesArea = document.querySelector('.tables');
-const grounds = document.querySelector('.grounds');
-const tables = [...document.querySelectorAll('.table')];
 const MIN_ZOOM = 1;
 const MAX_ZOOM = 3;
 const ZOOM_STEP = 0.25;
 const view = { zoom: MIN_ZOOM, x: 0, y: 0 };
 let dragStart = null;
-let tableLayoutFrozen = false;
 
 function clampPan() {
   const maxX = viewport.clientWidth * (view.zoom - 1) / 2;
@@ -50,7 +46,7 @@ resetButton.addEventListener('click', () => {
 });
 
 viewport.addEventListener('pointerdown', (event) => {
-  if (event.target.closest('.table') || view.zoom <= MIN_ZOOM || event.button !== 0) return;
+  if (event.target.closest('.gate') || view.zoom <= MIN_ZOOM || event.button !== 0) return;
   dragStart = { pointerId: event.pointerId, x: event.clientX, y: event.clientY, panX: view.x, panY: view.y };
   viewport.setPointerCapture(event.pointerId);
   viewport.classList.add('is-dragging');
@@ -79,63 +75,12 @@ viewport.addEventListener('wheel', (event) => {
 window.addEventListener('resize', renderView);
 renderView();
 
-function freezeTableLayout() {
-  if (tableLayoutFrozen) return;
 
-  const groundsBounds = grounds.getBoundingClientRect();
-  const positions = tables.map((table) => {
-    const bounds = table.getBoundingClientRect();
-    return {
-      table,
-      left: (bounds.left - groundsBounds.left) / view.zoom,
-      top: (bounds.top - groundsBounds.top) / view.zoom,
-      width: bounds.width / view.zoom,
-      height: bounds.height / view.zoom,
-    };
-  });
-
-  tablesArea.classList.add('is-positioned');
-  positions.forEach(({ table, left, top, width, height }) => {
-    table.classList.add('is-positioned');
-    table.style.left = `${left}px`;
-    table.style.top = `${top}px`;
-    table.style.width = `${width}px`;
-    table.style.height = `${height}px`;
-  });
-  tableLayoutFrozen = true;
-}
-
-tables.forEach((table) => {
-  table.addEventListener('pointerdown', (event) => {
-    if (event.button !== 0) return;
-    event.preventDefault();
-    event.stopPropagation();
-    freezeTableLayout();
-    table.setPointerCapture(event.pointerId);
-    table.classList.add('is-dragging');
-
-    const startX = event.clientX;
-    const startY = event.clientY;
-    const startLeft = Number.parseFloat(table.style.left);
-    const startTop = Number.parseFloat(table.style.top);
-
-    const moveTable = (moveEvent) => {
-      const maxLeft = tablesArea.clientWidth - table.offsetWidth;
-      const maxTop = tablesArea.clientHeight - table.offsetHeight;
-      const left = startLeft + (moveEvent.clientX - startX) / view.zoom;
-      const top = startTop + (moveEvent.clientY - startY) / view.zoom;
-      table.style.left = `${Math.max(0, Math.min(maxLeft, left))}px`;
-      table.style.top = `${Math.max(0, Math.min(maxTop, top))}px`;
-    };
-
-    const stopMovingTable = () => {
-      table.removeEventListener('pointermove', moveTable);
-      table.classList.remove('is-dragging');
-    };
-
-    table.addEventListener('pointermove', moveTable);
-    table.addEventListener('pointerup', stopMovingTable, { once: true });
-    table.addEventListener('pointercancel', stopMovingTable, { once: true });
+document.querySelectorAll('.gate').forEach((gate) => {
+  gate.addEventListener('click', () => {
+    const isOpen = gate.classList.toggle('is-open');
+    gate.setAttribute('aria-expanded', String(isOpen));
+    const side = gate.classList.contains('gate-left') ? 'left' : 'right';
+    gate.setAttribute('aria-label', `${isOpen ? 'Close' : 'Open'} ${side} gate`);
   });
 });
-
