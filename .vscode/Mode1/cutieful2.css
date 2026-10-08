@@ -43,3 +43,42 @@ button#BuildB:hover {
     transform: scale(1.05);
     color: white;
 }
+
+button#BuildC {
+    position: absolute;
+    left: 122px;
+    bottom: 154px;
+    width: 282px;
+    height: 58px;
+}
+button#BuildC:hover {
+    background-color: #c46428;
+    transform: scale(1.05);
+    color: white;
+}
+
+button#BuildD {
+    position: absolute;
+    left: 122px;
+    bottom: 323px;
+    width: 286px;
+    height: 58px;
+}
+button#BuildD:hover {
+    background-color: #c46428;
+    transform: scale(1.05);
+    color: white;
+}
+
+button#BuildE {
+    position: absolute;
+    left: 415px;
+    bottom: 154px;
+    width: 160px;
+    height: 58px;
+}
+button#BuildE:hover {
+    background-color: #c46428;
+    transform: scale(1.05);
+    color: white;
+}
