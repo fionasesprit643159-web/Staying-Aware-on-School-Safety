@@ -55,6 +55,52 @@ body {
 
 .simulation-timer.is-finished { background: #f5d9c6; }
 
+.checklist-panel {
+  position: fixed;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  width: min(31rem, calc(100vw - 2rem));
+  padding: clamp(1.25rem, 4vw, 2rem);
+  border: 3px solid #080808;
+  background: #fff;
+  color: #080808;
+  box-shadow: .55rem .55rem 0 rgb(8 8 8 / 28%);
+  transform: translate(-50%, -45%);
+}
+
+.checklist-panel.is-open {
+  animation: checklist-pop 420ms cubic-bezier(.2, .9, .3, 1.25) both;
+}
+
+.checklist-progress { margin: 0 0 .55rem; font-size: .82rem; font-weight: 750; }
+.checklist-progress { color: #555; }
+.checklist-title { margin: 0 0 .75rem; font-size: clamp(1.35rem, 4vw, 1.9rem); }
+.checklist-prompt { margin: 0; font-size: clamp(1.1rem, 3vw, 1.4rem); font-weight: 800; line-height: 1.25; }
+.checklist-response { margin: .85rem 0 0; font-size: 1rem; line-height: 1.45; }
+.checklist-answers { display: flex; gap: .75rem; margin-top: 1.25rem; }
+.checklist-answer,
+.checklist-next {
+  min-height: 2.8rem;
+  padding: .6rem 1.25rem;
+  border: 2px solid #080808;
+  color: #080808;
+  background: #f5d9c6;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+.checklist-answer { flex: 1; }
+.checklist-next { margin: 1rem 0 0 auto; background: #c46428; }
+.checklist-next:not([hidden]) { display: block; }
+.checklist-answer:focus-visible,
+.checklist-next:focus-visible { outline: 3px solid #8c3614; outline-offset: 3px; }
+
+@keyframes checklist-pop {
+  from { opacity: 0; transform: translate(-50%, -42%) scale(.88); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
 @keyframes timer-pop {
   from { opacity: 0; transform: translate(-50%, -1rem) scale(.8); }
   to { opacity: 1; transform: translate(-50%, 0) scale(1); }
@@ -179,11 +225,34 @@ body {
   font-family: inherit;
   font-size: clamp(.3rem, 1.35vw, 1.16rem);
   font-weight: 700;
+  padding-right: clamp(1rem, 1.4vw, 1.4rem);
   white-space: nowrap;
   cursor: pointer;
   transform-origin: right center;
   transition: transform 300ms ease;
 }
+
+.stall-lock {
+  position: absolute;
+  z-index: 5;
+  right: 8%;
+  bottom: clamp(-.48rem, -.7vw, -.25rem);
+  width: clamp(1.15rem, 2vw, 1.65rem);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  padding: .12rem;
+  border: 2px solid #080808;
+  border-radius: 3px;
+  color: #080808;
+  background: #f5d9c6;
+  cursor: pointer;
+}
+
+.stall-lock svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.stall-lock.is-locked { color: #fff; background: #33333b; }
+.stall-lock:disabled { opacity: .55; cursor: wait; }
+.stall-lock:focus-visible { outline: 3px solid #080808; outline-offset: 2px; }
 
 .stall-door.is-open {
   transform: rotate(-90deg);
@@ -245,6 +314,51 @@ body {
 .main-door.is-open {
   transform: rotate(-90deg);
 }
+
+.main-door.is-barricaded {
+  background: #8c3614;
+  color: #fff;
+  box-shadow: inset 0 0 0 3px #080808;
+}
+
+.trash-can {
+  position: absolute;
+  z-index: 4;
+  width: clamp(3.4rem, 5.4vw, 4.6rem);
+  height: clamp(3.7rem, 6.2vw, 5.2rem);
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.trash-can:active { cursor: grabbing; }
+.trash-can:disabled { opacity: 1; cursor: not-allowed; }
+.trash-can:focus-visible { outline: 3px solid #080808; outline-offset: 3px; }
+.trash-can::after {
+  content: "Trash can";
+  position: absolute;
+  left: 50%;
+  bottom: -.95rem;
+  padding: .08rem .2rem;
+  border: 1px solid #080808;
+  color: #080808;
+  background: #fff;
+  font-size: clamp(.55rem, .8vw, .7rem);
+  font-weight: 800;
+  line-height: 1.1;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.trash-can--one { left: 1.5%; bottom: 18%; }
+.trash-can--two { left: 1.5%; bottom: 35%; }
+.trash-can.is-dragging { z-index: 6; }
+.trash-can-image { display: block; width: 100%; height: 100%; object-fit: contain; pointer-events: none; filter: drop-shadow(0 0 .12rem #fff) drop-shadow(0 .15rem .1rem rgb(8 8 8 / 35%)); }
+.trash-can.is-barricading { outline: 2px solid #8c3614; outline-offset: 2px; }
 
 .main-door:focus-visible {
   outline: 3px solid #080808;

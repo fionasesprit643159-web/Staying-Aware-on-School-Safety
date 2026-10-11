@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216 233" role="img" aria-labelledby="title">
+  <title id="title">Gray ribbed office trash can with handle</title>
+  <defs>
+    <linearGradient id="body" x1="0" x2="1">
+      <stop offset="0" stop-color="#747888" />
+      <stop offset=".2" stop-color="#aeb2c1" />
+      <stop offset=".78" stop-color="#a6aaba" />
+      <stop offset="1" stop-color="#747888" />
+    </linearGradient>
+    <linearGradient id="lid" x1="0" x2="0" y1="0" y2="1">
+      <stop stop-color="#d1d3dc" />
+      <stop offset="1" stop-color="#969aa9" />
+    </linearGradient>
+  </defs>
+  <path d="M76 34V20c0-6 5-11 11-11h43c6 0 11 5 11 11v14" fill="none" stroke="#666a79" stroke-width="8" />
+  <path d="M78 34V21c0-4 3-7 7-7h47c4 0 7 3 7 7v13" fill="none" stroke="#aeb2c1" stroke-width="4" />
+  <path d="M40 48h136l-12 151c-1 10-8 16-18 16H70c-10 0-17-6-18-16z" fill="url(#body)" stroke="#666a79" stroke-width="5" stroke-linejoin="round" />
+  <path d="M55 67 65 188c1 5 8 5 8 0L68 65zm26-2 6 124c0 6 8 6 8 0L92 64zm28 0-1 125c0 6 8 6 8 0l1-125zm27 2-6 121c0 5 7 6 8 1l10-120z" fill="#737888" opacity=".8" />
+  <path d="M31 34h154c5 0 9 4 9 9v11c0 5-4 9-9 9H31c-5 0-9-4-9-9V43c0-5 4-9 9-9z" fill="url(#lid)" stroke="#666a79" stroke-width="5" />
+  <path d="M37 43h142" stroke="#e1e2e8" stroke-width="3" stroke-linecap="round" opacity=".8" />
+  <path d="M61 207c20 7 74 7 94 0" fill="none" stroke="#666a79" stroke-width="4" opacity=".8" />
+</svg>
