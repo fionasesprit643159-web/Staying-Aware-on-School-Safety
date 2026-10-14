@@ -22,10 +22,11 @@
         <div class="door-zone" aria-hidden="true"></div>
         <output class="door-zone-counter" aria-live="polite">Chairs: 0</output>
         <button class="light-switch" type="button" aria-pressed="true" aria-label="Turn lights off"><span aria-hidden="true"></span></button>
-        <button class="cabinet cabinet-one" type="button" aria-expanded="false" aria-label="Open cabinet 1"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 1</span></button>
-        <button class="cabinet cabinet-two" type="button" aria-expanded="false" aria-label="Open cabinet 2"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 2</span></button>
-        <button class="cabinet cabinet-three" type="button" aria-expanded="false" aria-label="Open cabinet 3"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 3</span></button>
-        <button class="cabinet cabinet-four" type="button" aria-expanded="false" aria-label="Open cabinet 4"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 4</span></button>
+        <div class="cabinet-zone" aria-hidden="true"><span>Hide in cabinet?</span></div>
+        <div class="cabinet cabinet-one" role="button" tabindex="0" aria-expanded="false" aria-label="Open cabinet 1"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 1</span><button class="cabinet-prompt" type="button" aria-pressed="false">Hide in cabinet?</button></div>
+        <div class="cabinet cabinet-two" role="button" tabindex="0" aria-expanded="false" aria-label="Open cabinet 2"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 2</span><button class="cabinet-prompt" type="button" aria-pressed="false">Hide in cabinet?</button></div>
+        <div class="cabinet cabinet-three" role="button" tabindex="0" aria-expanded="false" aria-label="Open cabinet 3"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 3</span><button class="cabinet-prompt" type="button" aria-pressed="false">Hide in cabinet?</button></div>
+        <div class="cabinet cabinet-four" role="button" tabindex="0" aria-expanded="false" aria-label="Open cabinet 4"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 4</span><button class="cabinet-prompt" type="button" aria-pressed="false">Hide in cabinet?</button></div>
         <div class="tv-light" aria-hidden="true"></div>
         <div class="tv" role="img" aria-label="TV along the front wall"><span>TV</span></div>
         <button class="projector-computer" type="button" aria-pressed="true" aria-label="Turn projector off">

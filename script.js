@@ -103,7 +103,7 @@ const cabinets = document.querySelectorAll('.cabinet');
 
 function resetCabinets() {
   cabinets.forEach((cabinet) => {
-    const number = cabinet.textContent.trim();
+    const number = cabinet.querySelector('.cabinet-name').textContent.trim();
     cabinet.classList.remove('is-open');
     cabinet.setAttribute('aria-expanded', 'false');
     cabinet.setAttribute('aria-label', `Open ${number.toLowerCase()} doors`);
@@ -114,9 +114,16 @@ resetCabinets();
 window.addEventListener('pageshow', resetCabinets);
 
 cabinets.forEach((cabinet) => {
-  cabinet.addEventListener('click', () => {
+  cabinet.addEventListener('click', (event) => {
+    const prompt = event.target.closest('.cabinet-prompt');
+    if (prompt) {
+      cabinet.classList.add('is-hidden');
+      prompt.setAttribute('aria-pressed', 'true');
+      return;
+    }
+
     const isOpen = cabinet.classList.toggle('is-open');
-    const number = cabinet.textContent.trim();
+    const number = cabinet.querySelector('.cabinet-name').textContent.trim();
     cabinet.setAttribute('aria-expanded', String(isOpen));
     cabinet.setAttribute('aria-label', `${isOpen ? 'Close' : 'Open'} ${number.toLowerCase()} doors`);
   });
