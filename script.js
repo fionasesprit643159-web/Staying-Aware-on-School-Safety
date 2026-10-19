@@ -6,7 +6,32 @@ const doorZoneCounter = document.querySelector('.door-zone-counter');
 const roomTimer = document.querySelector('.room-timer');
 const appShell = document.querySelector('.app-shell');
 const timerQuestion = document.querySelector('.timer-question');
+const timerQuestionTitle = document.querySelector('#timer-question-title');
+const answerButtons = document.querySelectorAll('.answer-buttons button');
 let layoutIsFrozen = false;
+let safetyQuestionIndex = 0;
+
+const safetyQuestions = [
+  'Did you close the door?',
+  'Did you turn off the lights?',
+  'Did you block the door?',
+  'Did you turn off the TV/projecter?',
+  'Did you hide in a cabinet?',
+];
+
+answerButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    if (button.dataset.answer !== 'yes') return;
+
+    if (safetyQuestionIndex === safetyQuestions.length - 1) {
+      window.location.href = 'end-page2.html';
+      return;
+    }
+
+    safetyQuestionIndex += 1;
+    timerQuestionTitle.textContent = safetyQuestions[safetyQuestionIndex];
+  });
+});
 
 const startingTimes = [30, 60, 120];
 let secondsRemaining = startingTimes[Math.floor(Math.random() * startingTimes.length)];
