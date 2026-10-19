@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Bird's-eye classroom room map." />
     <title>Room Map</title>
-    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
     <main class="app-shell">
@@ -15,13 +15,24 @@
         <p>Bird’s-eye view · Front of room at the bottom</p>
       </header>
       <section class="room" aria-label="Classroom layout">
+        <output class="room-timer" aria-live="polite">Timer: 0:00</output>
         <button class="door" type="button" aria-pressed="false" aria-label="Close door"><span>Door</span></button>
+        <button class="door-lock" type="button" aria-pressed="false" aria-label="Lock door"><span class="lock-bar" aria-hidden="true"></span></button>
+        <div class="door-zone" aria-hidden="true"></div>
+        <output class="door-zone-counter" aria-live="polite">Chairs: 0</output>
         <button class="light-switch" type="button" aria-pressed="true" aria-label="Turn lights off"><span aria-hidden="true"></span></button>
-        <button class="cabinet cabinet-one" type="button" aria-expanded="false" aria-label="Open cabinet 1"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 1</span></button>
-        <button class="cabinet cabinet-two" type="button" aria-expanded="false" aria-label="Open cabinet 2"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 2</span></button>
-        <button class="cabinet cabinet-three" type="button" aria-expanded="false" aria-label="Open cabinet 3"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 3</span></button>
-        <button class="cabinet cabinet-four" type="button" aria-expanded="false" aria-label="Open cabinet 4"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 4</span></button>
+        <div class="cabinet-zone" aria-hidden="true"><span>Hide in cabinet?</span></div>
+        <div class="cabinet cabinet-one" role="button" tabindex="0" aria-expanded="false" aria-label="Open cabinet 1"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 1</span><button class="cabinet-prompt" type="button" aria-pressed="false">Hide in cabinet?</button></div>
+        <div class="cabinet cabinet-two" role="button" tabindex="0" aria-expanded="false" aria-label="Open cabinet 2"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 2</span><button class="cabinet-prompt" type="button" aria-pressed="false">Hide in cabinet?</button></div>
+        <div class="cabinet cabinet-three" role="button" tabindex="0" aria-expanded="false" aria-label="Open cabinet 3"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 3</span><button class="cabinet-prompt" type="button" aria-pressed="false">Hide in cabinet?</button></div>
+        <div class="cabinet cabinet-four" role="button" tabindex="0" aria-expanded="false" aria-label="Open cabinet 4"><span class="cabinet-face" aria-hidden="true"></span><span class="cabinet-name">Cabinet 4</span><button class="cabinet-prompt" type="button" aria-pressed="false">Hide in cabinet?</button></div>
+        <div class="tv-light" aria-hidden="true"></div>
         <div class="tv" role="img" aria-label="TV along the front wall"><span>TV</span></div>
+        <button class="projector-computer" type="button" aria-pressed="true" aria-label="Turn projector off">
+          <span class="computer-screen" aria-hidden="true"></span>
+          <span class="computer-keyboard" aria-hidden="true"></span>
+          <span class="computer-power-key" aria-hidden="true"></span>
+        </button>
         <div class="window window-top" role="img" aria-label="Window on the right wall"><span>Window</span></div>
         <div class="window window-bottom" role="img" aria-label="Window on the right wall"></div>
         <div class="desks" aria-label="Twenty student desks">
@@ -29,6 +40,16 @@
           <button class="desk" type="button" aria-label="Desk 6"></button><button class="desk" type="button" aria-label="Desk 7"></button><button class="desk" type="button" aria-label="Desk 8"></button><button class="desk" type="button" aria-label="Desk 9"></button><button class="desk" type="button" aria-label="Desk 10"></button>
           <button class="desk" type="button" aria-label="Desk 11"></button><button class="desk" type="button" aria-label="Desk 12"></button><button class="desk" type="button" aria-label="Desk 13"></button><button class="desk" type="button" aria-label="Desk 14"></button><button class="desk" type="button" aria-label="Desk 15"></button>
           <button class="desk" type="button" aria-label="Desk 16"></button><button class="desk" type="button" aria-label="Desk 17"></button><button class="desk" type="button" aria-label="Desk 18"></button><button class="desk" type="button" aria-label="Desk 19"></button><button class="desk" type="button" aria-label="Desk 20"></button>
+        </div>
+      </section>
+      <section class="timer-question" aria-live="assertive" aria-hidden="true">
+        <div class="timer-question-card" role="dialog" aria-modal="true" aria-labelledby="timer-question-title">
+          <p>Time's up</p>
+          <h2 id="timer-question-title">Did you close the door?</h2>
+          <div class="answer-buttons">
+            <button type="button" data-answer="yes">Yes</button>
+            <button type="button" data-answer="no">No</button>
+          </div>
         </div>
       </section>
     </main>
