@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#173f17">
 <meta name="description" content="A calm, supportive school safety practice and reflection app."><link rel="manifest" href="manifest.webmanifest">
-<title>Simulator complete | Shooting Safety</title>
+<title>End Page | Shooting Safety</title>
 <style>
 :root {
   color: #2e3118;
@@ -62,11 +62,11 @@ body {
 }
 
 .top-note { color: var(--muted); font-size: 18px; }
-main { width: min(960px, calc(100% - 36px)); margin: 52px auto 72px; }
+main { width: min(1040px, calc(100% - 44px)); margin: 60px auto 88px; }
 .screen { display: none; animation: appear .28s ease; }
 .screen.active { display: block; }
 @keyframes appear { from { opacity: .3; transform: translateY(7px); } to { opacity: 1; transform: none; } }
-.hero { margin-bottom: 34px; text-align: center; }
+.hero { margin-bottom: 44px; text-align: center; }
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -90,12 +90,12 @@ main { width: min(960px, calc(100% - 36px)); margin: 52px auto 72px; }
   letter-spacing: -.07em;
 }
 .hero p {
-  max-width: 590px;
+  max-width: 720px;
   margin: 0 auto;
   color: var(--ink);
   font-size: clamp(1rem, 3.5vw, 1.25rem);
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.7;
 }
 .card {
   overflow: hidden;
@@ -104,7 +104,26 @@ main { width: min(960px, calc(100% - 36px)); margin: 52px auto 72px; }
   background: var(--panel);
   box-shadow: 0 .65rem 1.4rem rgb(0 0 0 / 10%);
 }
-.panel { max-width: 700px; margin: auto; padding: 30px; }
+.page-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 0 auto 28px; }
+.page-tab { min-width: 0; min-height: 62px; padding: 14px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); color: var(--ink); font: inherit; font-size: 1rem; font-weight: 700; cursor: pointer; }
+.page-tab[aria-selected="true"] { border-color: var(--green); background: var(--green); color: #fffefa; }
+.page-tab:focus-visible { outline: 3px solid #929c62; outline-offset: 3px; }
+.tab-panel[hidden] { display: none; }
+.panel { max-width: 760px; margin: auto; padding: 38px; }
+.shared-resource { margin-top: 48px; }
+.bathroom-card { max-width: 920px; }
+.checklist-heading { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin: 0 0 16px; }
+.checklist-heading h2 { margin: 0; }
+.simulator-link { flex: 0 0 auto; min-height: 46px; padding: 8px 18px; font-size: 1rem; text-align: center; }
+.bathroom-card > p { margin: 0; color: var(--muted); }
+.bathroom-steps .step { align-items: center; min-height: 68px; padding: 18px 22px; }
+.bathroom-steps .step strong { font-size: 18px; }
+.bathroom-reminder { margin-top: 30px; padding: 26px 28px; border: 1px solid var(--line); border-radius: 15px; background: #f6b57c; }
+.bathroom-reminder > strong { color: var(--accent); font-size: 1.05rem; }
+.bathroom-reminder p { margin: 10px 0 0; line-height: 1.75; }
+.law-enforcement-title { margin: 24px 0 8px; color: var(--ink); font-size: 1.2rem; letter-spacing: -.02em; }
+.law-enforcement-list { margin: 8px 0 18px; padding-left: 1.4rem; color: var(--ink); font-size: 18px; line-height: 1.6; }
+.law-enforcement-list li + li { margin-top: 5px; }
 .panel h2, .summary h2, .next h2 {
   margin: 8px 0;
   color: var(--ink);
@@ -112,7 +131,7 @@ main { width: min(960px, calc(100% - 36px)); margin: 52px auto 72px; }
   font-weight: 700;
   letter-spacing: -.035em;
 }
-.panel p, .summary p, .next p { color: var(--ink); font-size: 18px; line-height: 1.55; }
+.panel p, .summary p, .next p { color: var(--ink); font-size: 18px; line-height: 1.7; }
 .summary { display: grid; grid-template-columns: 1fr 1.2fr; }
 .summary-intro { padding: 30px 32px; border-right: 1px solid var(--line); background: #f6b57c; }
 .summary-intro p { margin: 0; }
@@ -131,8 +150,8 @@ main { width: min(960px, calc(100% - 36px)); margin: 52px auto 72px; }
 }
 .item strong { display: block; color: var(--ink); font-size: 18px; }
 .item span { display: block; margin-top: 2px; color: var(--muted); font-size: 18px; line-height: 1.55; }
-.steps { display: grid; gap: 12px; margin: 22px 0; }
-.step { display: flex; align-items: flex-start; gap: 13px; padding: 15px 17px; border: 1px solid var(--line); border-radius: 13px; background: var(--paper); }
+.steps { display: grid; gap: 16px; margin: 28px 0; }
+.step { display: flex; align-items: flex-start; gap: 16px; padding: 19px 22px; border: 1px solid var(--line); border-radius: 13px; background: var(--paper); }
 .number { width: 28px; height: 28px; flex: 0 0 28px; border-radius: 9px; display: grid; place-items: center; background: var(--green); color: var(--ink); font-weight: 700; }
 .step strong { display: block; color: var(--ink); }
 .step span { color: var(--muted); font-size: 18px; }
@@ -184,23 +203,122 @@ a { color: var(--accent); }
 @media (max-width: 700px) {
   .topbar { min-height: 58px; }
   .top-note { display: none; }
-  main { margin: 32px auto 48px; }
-  .hero { margin-bottom: 23px; }
+  main { width: min(100% - 28px, 720px); margin: 36px auto 56px; }
+  .hero { margin-bottom: 30px; }
   .summary { grid-template-columns: 1fr; }
   .summary-intro { border-right: 0; border-bottom: 1px solid var(--line); padding: 23px; }
-  .review, .panel { padding: 22px 23px; }
+  .review, .panel { padding: 25px 22px; }
   .next { grid-template-columns: 1fr; padding: 20px; text-align: center; }
   .next .btn { width: 100%; }
   .actions { flex-direction: column; }
   .actions .btn { width: 100%; }
+  .page-tabs { gap: 9px; margin-bottom: 22px; }
+  .page-tab { min-height: 58px; padding: 10px 7px; font-size: .95rem; }
+  .bathroom-steps .step { min-height: 64px; padding: 16px; }
+  .checklist-heading { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .checklist-heading .simulator-link { width: 100%; }
+  .bathroom-reminder { margin-top: 24px; padding: 22px 20px; }
+  .steps { gap: 13px; margin: 22px 0; }
+  .shared-resource { margin-top: 34px; }
 }
 </style></head>
 <body><header class="topbar"><div class="brand" aria-label="Shooting Safety"><span class="brand-mark" aria-hidden="true">✳</span><span>Shooting Safety</span></div><div class="top-note">Practice • Reflect • Be prepared</div></header>
 <main>
 
 
-<section id="complete" class="screen"><div class="hero"><span class="eyebrow"><span class="dot"></span> Practice complete</span><h1>You’ve completed the simulator.</h1><p>You completed the shooting safety simulator. Take a moment to recognize what you learned, and remember that your school’s emergency plan and trusted adults are your guides.</p></div><section class="card summary" aria-labelledby="reflect-title"><div class="summary-intro"><h2 id="reflect-title">Take a moment to reflect</h2><p>Use these reminders to carry the learning forward. Your safety and wellbeing come first.</p></div><div class="review"><h3>Key takeaways</h3><div class="item"><span class="check" aria-hidden="true">✓</span><div><strong>Notice what is happening</strong><span>Pause, listen, and use the information around you before choosing what to do.</span></div></div><div class="item"><span class="check" aria-hidden="true">✓</span><div><strong>Choose the safest available option</strong><span>Follow your school’s emergency plan and instructions from trusted adults or responders.</span></div></div><div class="item"><span class="check" aria-hidden="true">✓</span><div><strong>Ask for support afterward</strong><span>It is okay to talk with a trusted adult, counselor, or support person about how this felt.</span></div></div></div></section><section class="card panel" style="margin:18px auto 0" aria-labelledby="feedback-title"><h2 id="feedback-title">Tips for your next practice</h2><p>Use your simulator result to see a few helpful next steps. This is feedback for learning, not a grade.</p><div class="feedback-pick" id="feedback-pick"><button class="feedback-choice" data-outcome="needs-practice" onclick="chooseFeedback('needs-practice')">I needed more guidance<span>Show me more ideas to practice</span></button><button class="feedback-choice" data-outcome="confident" onclick="chooseFeedback('confident')">I felt confident<span>Show me a few reminders</span></button></div><div id="feedback-result" class="feedback-result" aria-live="polite" hidden></div></section><section class="card panel" style="margin:18px auto 0"><h2>Why awareness and support matter</h2><p>Exposure to gun violence and the fear of violence can affect students’ wellbeing, sense of safety, and learning. Sandy Hook Promise emphasizes prevention through noticing when someone may be in crisis, taking concerns seriously, and connecting them with help early.</p><div class="steps"><div class="step"><span class="number">1</span><div><strong>Notice changes and warning signs</strong><span>Reach out if a student seems isolated, distressed, or says something that raises concern.</span></div></div><div class="step"><span class="number">2</span><div><strong>Tell a trusted adult</strong><span>Share concerns with a teacher, counselor, family member, or another trusted adult. Do not handle a serious concern alone.</span></div></div><div class="step"><span class="number">3</span><div><strong>Build a supportive school community</strong><span>Listening without judgment and helping students find support can make it easier to ask for help.</span></div></div></div><p style="font-size:18px">Sandy Hook Promise reports that students who received its prevention training were better able to recognize warning signs, take them seriously, and get help. <a href="https://www.sandyhookpromise.org/what-we-do/research/key-findings/" target="_blank" rel="noopener">Read its research findings</a> or learn about the <a href="https://www.sandyhookpromise.org/what-we-do/programs/violence-prevention/say-something/" target="_blank" rel="noopener">Say Something program</a>.</p></section><div class="actions"><button class="btn secondary" onclick="window.scrollTo({top:0,behavior:'smooth'})">← &nbsp;Back to beginning</button></div><div class="card panel" style="margin-top:18px"><h2>Your reflection <span style="font:500 18px system-ui;color:var(--ink)">(optional)</span></h2><p>What is one thing you want to remember? This stays on this device.</p><label for="reflection" class="sr-only">Your reflection</label><textarea id="reflection" class="reflection" placeholder="Write a note to yourself…"></textarea><div class="actions"><button class="btn secondary" onclick="saveReflection()">Save reflection</button><button class="btn secondary" onclick="showToast('Take a breath. When you’re ready, reach out to a trusted adult or counselor.')">I need support</button></div></div><p class="footnote">This practice is for learning, not a test. Follow your school’s official emergency procedures.</p></section>
+<section id="complete" class="screen">
+  <div class="hero">
+    <span class="eyebrow"><span class="dot"></span> Practice complete</span>
+    <h1>You’ve completed the simulator.</h1>
+    <p>You completed the shooting safety simulator. Take a moment to recognize what you learned, and remember that your school’s emergency plan and trusted adults are your guides. Always be aware of your surroundings and stay alert when facing a school shooter.</p>
+  </div>
+
+  <nav class="page-tabs" role="tablist" aria-label="Completion page sections">
+    <button class="page-tab" id="tab-takeaways" type="button" role="tab" aria-selected="true" aria-controls="panel-takeaways" tabindex="0">Classroom page</button>
+    <button class="page-tab" id="tab-practice" type="button" role="tab" aria-selected="false" aria-controls="panel-practice" tabindex="-1">Bathroom page</button>
+    <button class="page-tab" id="tab-support" type="button" role="tab" aria-selected="false" aria-controls="panel-support" tabindex="-1">Outdoor page</button>
+  </nav>
+
+  <section class="tab-panel" id="panel-takeaways" role="tabpanel" aria-labelledby="tab-takeaways" tabindex="0">
+    <section class="card panel bathroom-card" aria-labelledby="bathroom-title">
+      <div class="checklist-heading"><h2 id="bathroom-title">Classroom checklist</h2><button class="btn simulator-link" type="button">Go to classroom simulator</button></div>
+      <p>Review these steps as part of your school’s safety plan.</p>
+      <div class="steps bathroom-steps">
+        <div class="step"><span class="number">1</span><strong>Did you lock the door?</strong></div>
+        <div class="step"><span class="number">2</span><strong>Did you turn off the lights?</strong></div>
+        <div class="step"><span class="number">3</span><strong>Did you barricade the door?</strong></div>
+        <div class="step"><span class="number">4</span><strong>Did you turn off the projector/TV?</strong></div>
+        <div class="step"><span class="number">5</span><strong>Did you hide in the cabinet?</strong></div>
+      </div>
+      <div class="bathroom-reminder"><strong>Remember</strong><p>In the classroom, always remember to lock the doors, turn off any lights, barricade the door with furniture, and stay hidden. Have an escape route and plan in mind, and be prepared to evacuate regardless of whether others agree to follow. Leave your belongings behind, as they may slow you down. If faced with the shooter, be prepared to physically fight for your life. Work together with your peers nearby to safely survive. Once you are safe, call 911.</p></div>
+    </section>
+  </section>
+
+  <section class="tab-panel" id="panel-practice" role="tabpanel" aria-labelledby="tab-practice" tabindex="0" hidden>
+    <section class="card panel bathroom-card" aria-labelledby="outdoor-bathroom-title">
+      <div class="checklist-heading"><h2 id="outdoor-bathroom-title">Bathroom checklist</h2><button class="btn simulator-link" type="button">Go to bathroom simulator</button></div>
+      <p>Review these steps as part of your school’s safety plan.</p>
+      <div class="steps bathroom-steps">
+        <div class="step"><span class="number">1</span><strong>Did you lock the door?</strong></div>
+        <div class="step"><span class="number">2</span><strong>Did you barricade the door?</strong></div>
+        <div class="step"><span class="number">3</span><strong>Did you hide in an inner stall?</strong></div>
+        <div class="step"><span class="number">4</span><strong>Did you lock the stall door?</strong></div>
+        <div class="step"><span class="number">5</span><strong>Are you hidden from view?</strong></div>
+        <div class="step"><span class="number">6</span><strong>Did you maintain silence?</strong></div>
+        <div class="step"><span class="number">7</span><strong>Are you prepared to fight only as a last resort?</strong></div>
+      </div>
+      <div class="bathroom-reminder"><strong>Remember</strong><p>It is essential to hide in the nearest shelter at school if there is a shooter. If stuck in the bathroom, always remember to lock the doors if there is a lock. Hide and lock yourself in the inner stall, make yourself hidden from view. If there is furniture in the bathroom, use it to barricade the door. Stand on top of the toilet to remain hidden, and remain silent. If faced with the shooter, be prepared to physically fight for your life. Work together with your peers nearby to safely survive. Once you are safe, call 911.</p></div>
+    </section>
+    <section class="card panel" style="margin:18px auto 0">
+      <h2>Your reflection <span style="font:500 18px system-ui;color:var(--ink)">(optional)</span></h2>
+      <p>What is one thing you want to remember? This stays on this device.</p>
+      <label for="reflection" class="sr-only">Your reflection</label>
+      <textarea id="reflection" class="reflection" placeholder="Write a note to yourself…"></textarea>
+      <div class="actions"><button class="btn secondary" onclick="saveReflection()">Save reflection</button><button class="btn secondary" onclick="showToast('Take a breath. When you’re ready, reach out to a trusted adult or counselor.')">I need support</button></div>
+    </section>
+  </section>
+
+  <section class="tab-panel" id="panel-support" role="tabpanel" aria-labelledby="tab-support" tabindex="0" hidden>
+    <section class="card panel bathroom-card" aria-labelledby="outdoor-checklist-title">
+      <div class="checklist-heading"><h2 id="outdoor-checklist-title">Outdoor checklist</h2><button class="btn simulator-link" type="button">Go to outdoor simulator</button></div>
+      <p>Review these steps as part of your school’s safety plan.</p>
+      <div class="steps bathroom-steps">
+        <div class="step"><span class="number">1</span><strong>Did you leave your belongings behind?</strong></div>
+        <div class="step"><span class="number">2</span><strong>Did you use a safe exit away from the threat?</strong></div>
+        <div class="step"><span class="number">3</span><strong>If you could not safely exit, did you hide in a secure place out of sight?</strong></div>
+        <div class="step"><span class="number">4</span><strong>Did you lock or block the entry?</strong></div>
+        <div class="step"><span class="number">5</span><strong>If met with the shooter, did you fight?</strong></div>
+      </div>
+      <div class="bathroom-reminder"><strong>Remember</strong><p>If you are unable to evacuate to a safe space at school, it’s vital to know how to stay safe in open spaces outdoors. If stuck outside in the quads or hallways, remember to leave your belongings behind if it slows you down, and barricade any entries to the school with nearby trashcans or tables. Try to evacuate from the school and use a safe exit away from the threat. If unable to escape, hide under tables and in trees. If faced with the shooter, be prepared to physically fight for your life. Work together with your peers nearby to safely survive. Once you are safe, call 911.</p></div>
+    </section>
+  </section>
+
+  <section class="shared-resource" aria-labelledby="support-title">
+    <section class="card panel">
+      <h2 id="support-title">Why awareness and support matter</h2>
+      <p>Exposure to gun violence and the fear of violence can affect students’ wellbeing, sense of safety, and learning. Sandy Hook Promise emphasizes prevention through noticing when someone may be in crisis, taking concerns seriously, and connecting them with help early.</p>
+      <div class="steps">
+        <div class="step"><span class="number">1</span><div><strong>Notice changes and warning signs</strong><span>Reach out if a student seems isolated, distressed, or says something that raises concern.</span></div></div>
+        <div class="step"><span class="number">2</span><div><strong>Tell a trusted adult</strong><span>Share concerns with a teacher, counselor, family member, or another trusted adult. Do not handle a serious concern alone.</span></div></div>
+        <div class="step"><span class="number">3</span><div><strong>Build a supportive school community</strong><span>Listening without judgment and helping students find support can make it easier to ask for help.</span></div></div>
+      </div>
+      <p style="font-size:18px">Sandy Hook Promise reports that students who received its prevention training were better able to recognize warning signs, take them seriously, and get help. <a href="https://www.sandyhookpromise.org/what-we-do/research/key-findings/" target="_blank" rel="noopener">Read its research findings</a> or learn about the <a href="https://www.sandyhookpromise.org/what-we-do/programs/violence-prevention/say-something/" target="_blank" rel="noopener">Say Something program</a>.</p>
+      <h3 class="law-enforcement-title">Information to provide to law enforcement or 911 operator</h3>
+      <ul class="law-enforcement-list">
+        <li>Location of the active shooter</li>
+        <li>Number of shooters, if more than one</li>
+        <li>Physical description of shooter/s</li>
+        <li>Number and type of weapons held by the shooter/s</li>
+        <li>Number of potential victims at the location</li>
+      </ul>
+      <p><a href="https://www.dhs.gov/xlibrary/assets/active_shooter_booklet.pdf" target="_blank" rel="noopener">Read the DHS Active Shooter booklet (PDF)</a></p>
+    </section>
+  </section>
+
+  <div class="actions"><button class="btn secondary" onclick="window.scrollTo({top:0,behavior:'smooth'})">← &nbsp;Back to beginning</button></div>
+  <p class="footnote">This practice is for learning, not a test. Follow your school’s official emergency procedures.</p>
+</section>
 </main><div id="toast" class="toast" role="status" aria-live="polite"></div>
 <script>
-const screens=[...document.querySelectorAll('.screen')];let toastTimer;function route(){screens.forEach(s=>s.classList.toggle('active',s.id==='complete'))}const feedbackTips={ 'needs-practice':{title:'It is okay to need more practice.',intro:'Take it one step at a time. Review your school’s plan with a trusted adult, and focus on the next safe choice available to you.',tips:['Review your school’s emergency plan and ask a trusted adult about anything that is unclear.','Think about which adults at school you can go to for help.','After practice, note one decision you want to understand better and discuss it with a teacher or counselor.','If the practice felt upsetting, pause and talk with a trusted adult or counselor before trying again.']},confident:{title:'You showed confidence in your choices.',intro:'Keep building on that confidence by staying familiar with your school’s plan and knowing where to turn for help.',tips:['Keep following your school’s official procedures and instructions from trusted adults or responders.','Check in with a trusted adult if you have questions or want to review your plan.']}};function chooseFeedback(outcome,fromSimulator=false){if(!feedbackTips[outcome])return;const data=feedbackTips[outcome];const box=document.getElementById('feedback-result');box.innerHTML='<h3>'+data.title+'</h3><p>'+data.intro+'</p><ul>'+data.tips.map(t=>'<li>'+t+'</li>').join('')+'</ul>';box.hidden=false;document.querySelectorAll('.feedback-choice').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.outcome===outcome)));if(!fromSimulator){try{localStorage.setItem('simulatorPerformance',outcome)}catch(e){}}}function loadSimulatorOutcome(){const query=new URLSearchParams(location.search).get('performance');let saved='';try{saved=localStorage.getItem('simulatorPerformance')||''}catch(e){}const value=query||saved;const normalized={low:'needs-practice',bad:'needs-practice',needs_help:'needs-practice',needspractice:'needs-practice',good:'confident',high:'confident',strong:'confident'}[value]||value;if(feedbackTips[normalized])chooseFeedback(normalized,true)}function showToast(message){const el=document.getElementById('toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3000)}function saveReflection(){try{localStorage.setItem('shootingSafetyReflection',document.getElementById('reflection').value);showToast('Your reflection is saved on this device.')}catch(e){showToast('Reflection could not be saved in this browser.')}}document.getElementById('reflection').value=localStorage.getItem('shootingSafetyReflection')||'';loadSimulatorOutcome();window.addEventListener('hashchange',route);route();if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
+const screens=[...document.querySelectorAll('.screen')];let toastTimer;const pageTabs=[...document.querySelectorAll('[role=tab]')];function activatePageTab(tab,focus=false){pageTabs.forEach(item=>{const selected=item===tab;item.setAttribute('aria-selected',String(selected));item.tabIndex=selected?0:-1;document.getElementById(item.getAttribute('aria-controls')).hidden=!selected});if(focus)tab.focus()}pageTabs.forEach((tab,index)=>{tab.addEventListener('click',()=>activatePageTab(tab));tab.addEventListener('keydown',event=>{let nextIndex=index;if(event.key==='ArrowRight')nextIndex=(index+1)%pageTabs.length;else if(event.key==='ArrowLeft')nextIndex=(index-1+pageTabs.length)%pageTabs.length;else if(event.key==='Home')nextIndex=0;else if(event.key==='End')nextIndex=pageTabs.length-1;else return;event.preventDefault();activatePageTab(pageTabs[nextIndex],true)})});function route(){screens.forEach(s=>s.classList.toggle('active',s.id==='complete'))}const feedbackTips={ 'needs-practice':{title:'It is okay to need more practice.',intro:'Take it one step at a time. Review your school’s plan with a trusted adult, and focus on the next safe choice available to you.',tips:['Review your school’s emergency plan and ask a trusted adult about anything that is unclear.','Think about which adults at school you can go to for help.','After practice, note one decision you want to understand better and discuss it with a teacher or counselor.','If the practice felt upsetting, pause and talk with a trusted adult or counselor before trying again.']},confident:{title:'You showed confidence in your choices.',intro:'Keep building on that confidence by staying familiar with your school’s plan and knowing where to turn for help.',tips:['Keep following your school’s official procedures and instructions from trusted adults or responders.','Check in with a trusted adult if you have questions or want to review your plan.']}};function chooseFeedback(outcome,fromSimulator=false){if(!feedbackTips[outcome])return;const data=feedbackTips[outcome];const box=document.getElementById('feedback-result');box.innerHTML='<h3>'+data.title+'</h3><p>'+data.intro+'</p><ul>'+data.tips.map(t=>'<li>'+t+'</li>').join('')+'</ul>';box.hidden=false;document.querySelectorAll('.feedback-choice').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.outcome===outcome)));if(!fromSimulator){try{localStorage.setItem('simulatorPerformance',outcome)}catch(e){}}}function loadSimulatorOutcome(){const query=new URLSearchParams(location.search).get('performance');let saved='';try{saved=localStorage.getItem('simulatorPerformance')||''}catch(e){}const value=query||saved;const normalized={low:'needs-practice',bad:'needs-practice',needs_help:'needs-practice',needspractice:'needs-practice',good:'confident',high:'confident',strong:'confident'}[value]||value;if(feedbackTips[normalized])chooseFeedback(normalized,true)}function showToast(message){const el=document.getElementById('toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3000)}function saveReflection(){try{localStorage.setItem('shootingSafetyReflection',document.getElementById('reflection').value);showToast('Your reflection is saved on this device.')}catch(e){showToast('Reflection could not be saved in this browser.')}}document.getElementById('reflection').value=localStorage.getItem('shootingSafetyReflection')||'';loadSimulatorOutcome();window.addEventListener('hashchange',route);route();if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script></body></html>
