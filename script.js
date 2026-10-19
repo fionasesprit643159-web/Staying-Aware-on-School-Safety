@@ -10,6 +10,9 @@ const timerQuestionTitle = document.querySelector('#timer-question-title');
 const answerButtons = document.querySelectorAll('.answer-buttons button');
 let layoutIsFrozen = false;
 let safetyQuestionIndex = 0;
+const answerLog = [];
+window.answerLog = answerLog;
+sessionStorage.removeItem('Answer log');
 
 const safetyQuestions = [
   'Did you close the door?',
@@ -19,9 +22,17 @@ const safetyQuestions = [
   'Did you hide in a cabinet?',
 ];
 
+function recordAnswer(answer) {
+  answerLog.push({
+    question: safetyQuestions[safetyQuestionIndex],
+    answer,
+  });
+  sessionStorage.setItem('Answer log', JSON.stringify(answerLog));
+}
+
 answerButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    if (button.dataset.answer !== 'yes') return;
+    recordAnswer(button.dataset.answer);
 
     if (safetyQuestionIndex === safetyQuestions.length - 1) {
       window.location.href = 'end-page2.html';

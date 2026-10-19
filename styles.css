@@ -87,7 +87,7 @@ header > p:last-child { margin: .5rem 0 0; color: #c46428; }
 .lock-bar { position: absolute; left: 50%; top: 21%; width: 20%; height: 58%; border: 2px solid #5f341d; border-radius: .18rem; background: #fff2bd; box-shadow: inset .08rem .08rem 0 rgb(255 255 255 / 65%); transform: translateX(-50%) rotate(0deg); transition: transform 180ms ease; }
 .door-lock[aria-pressed="true"] .lock-bar { transform: translateX(-50%) rotate(90deg); }
 .door-zone { position: absolute; left: 0; top: 5%; z-index: 1; width: 17%; height: 28%; pointer-events: none; }
-.door-zone-counter { position: absolute; left: 1.2%; top: 34%; z-index: 4; padding: .35rem .55rem; border: 2px solid #a46122; border-radius: .4rem; background: #fff4d7; color: #744018; font: 700 clamp(.7rem, 1.4vw, .95rem)/1 system-ui, sans-serif; box-shadow: .1rem .12rem 0 rgb(112 63 28 / 20%); pointer-events: none; }
+.door-zone-counter { display: none; }
 .light-switch { position: absolute; left: 0; top: 31%; z-index: 3; width: 5%; height: 7.5%; padding: 0; border: 2px solid #d7d0bd; border-radius: .45rem; background: linear-gradient(135deg, #fffef8, #e7dfcc); box-shadow: inset -.16rem -.15rem 0 #c7bda8, .12rem .18rem 0 rgb(91 102 86 / 28%); cursor: pointer; }
 .cabinet-zone { position: absolute; left: .5%; top: 43%; z-index: 1; width: 14%; height: 55%; pointer-events: none; }
 .cabinet-zone span { display: none; }
