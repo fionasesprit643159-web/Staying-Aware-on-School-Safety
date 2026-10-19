@@ -37,19 +37,19 @@ button {
     position: absolute;
     padding: 0;
     border-radius: 0;
-    background: transparent;
-    color: transparent;
 }
 
 .building-button:hover,
 .building-button:focus-visible {
-    background-color: rgb(196 100 40 / 75%);
+    background-color: rgb(196 100 40);
     color: white;
     transform: scale(1.05);
 }
 
-.building-a { left: 62px; bottom: 233px; width: 60px; height: 158px; }
-.building-b { left: 62px; bottom: 26px; width: 60px; height: 187px; }
-.building-c { left: 132px; bottom: 164px; width: 282px; height: 58px; }
-.building-d { left: 132px; bottom: 333px; width: 286px; height: 58px; }
-.building-e { left: 425px; bottom: 164px; width: 160px; height: 58px; }
+.building-a { left: 53px; bottom: 222px; width: 58px; height: 164px; }
+.building-b { left: 53px; bottom: 18px; width: 58px; height: 187px; }
+.building-c { left: 122px; bottom: 155px; width: 282px; height: 58px; }
+.building-d { left: 122px; bottom: 324px; width: 286px; height: 58px; }
+.building-e { left: 415px; bottom: 155px; width: 160px; height: 58px; }
+.building-f { left: 412px; bottom: 30px; width: 70px; height: 115px; }
+.building-g { left: 490px; bottom: 30px; width: 70px; height: 115px; }
