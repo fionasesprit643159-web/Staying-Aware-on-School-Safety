@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Top-down bathroom map with stalls and sinks." />
+    <title>Bathroom map</title>
+    <link rel="stylesheet" href="../styles/bathroom-layout.css" />
+  </head>
+  <body>
+    <aside class="simulation-timer" id="simulation-timer" hidden aria-label="Simulation countdown">
+      <p class="timer-heading">Time remaining</p>
+      <output class="timer-readout" id="timer-readout" aria-live="off">00:00</output>
+      <p class="timer-status" id="timer-status" aria-live="polite" tabindex="-1"></p>
+    </aside>
+    <section class="checklist-panel" id="checklist-panel" hidden aria-labelledby="checklist-title" role="dialog" aria-modal="true" aria-describedby="checklist-prompt">
+      <p class="checklist-progress" id="checklist-progress"></p>
+      <h1 class="checklist-title" id="checklist-title">Safety check</h1>
+      <p class="checklist-prompt" id="checklist-prompt" aria-live="polite"></p>
+      <div class="checklist-answers" id="checklist-answers">
+        <button class="checklist-answer" type="button" data-answer="yes">Yes</button>
+        <button class="checklist-answer" type="button" data-answer="no">No</button>
+      </div>
+      <p class="checklist-response" id="checklist-response" aria-live="polite" hidden></p>
+      <button class="checklist-next" id="checklist-next" type="button" hidden>Next</button>
+    </section>
+    <main class="bathroom-map" aria-label="Bathroom map">
+      <section class="bathroom" aria-label="Top-down bathroom with stalls and sinks">
+        <div class="stalls" aria-label="Six bathroom stalls">
+          <section class="stall"><button class="toilet-control" type="button" aria-label="Close toilet lid" aria-pressed="false"><img class="toilet" src="../assets/images/toilet.svg" alt="" /><svg class="toilet-cap" viewBox="0 0 120 160" aria-hidden="true"><path d="M34 84h52l4 29c2 16-8 29-30 29s-32-13-30-29z" /></svg></button><button class="stall-door" type="button" aria-label="Open stall door" aria-expanded="false">Stall door</button><button class="stall-lock" type="button" aria-label="Lock stall door" aria-pressed="false" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V7a5 5 0 0 1 10 0v3M5 10h14v11H5zM12 14v3" /></svg></button></section>
+          <section class="stall"><button class="toilet-control" type="button" aria-label="Close toilet lid" aria-pressed="false"><img class="toilet" src="../assets/images/toilet.svg" alt="" /><svg class="toilet-cap" viewBox="0 0 120 160" aria-hidden="true"><path d="M34 84h52l4 29c2 16-8 29-30 29s-32-13-30-29z" /></svg></button><button class="stall-door" type="button" aria-label="Open stall door" aria-expanded="false">Stall door</button><button class="stall-lock" type="button" aria-label="Lock stall door" aria-pressed="false" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V7a5 5 0 0 1 10 0v3M5 10h14v11H5zM12 14v3" /></svg></button></section>
+          <section class="stall"><button class="toilet-control" type="button" aria-label="Close toilet lid" aria-pressed="false"><img class="toilet" src="../assets/images/toilet.svg" alt="" /><svg class="toilet-cap" viewBox="0 0 120 160" aria-hidden="true"><path d="M34 84h52l4 29c2 16-8 29-30 29s-32-13-30-29z" /></svg></button><button class="stall-door" type="button" aria-label="Open stall door" aria-expanded="false">Stall door</button><button class="stall-lock" type="button" aria-label="Lock stall door" aria-pressed="false" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V7a5 5 0 0 1 10 0v3M5 10h14v11H5zM12 14v3" /></svg></button></section>
+          <section class="stall"><button class="toilet-control" type="button" aria-label="Close toilet lid" aria-pressed="false"><img class="toilet" src="../assets/images/toilet.svg" alt="" /><svg class="toilet-cap" viewBox="0 0 120 160" aria-hidden="true"><path d="M34 84h52l4 29c2 16-8 29-30 29s-32-13-30-29z" /></svg></button><button class="stall-door" type="button" aria-label="Open stall door" aria-expanded="false">Stall door</button><button class="stall-lock" type="button" aria-label="Lock stall door" aria-pressed="false" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V7a5 5 0 0 1 10 0v3M5 10h14v11H5zM12 14v3" /></svg></button></section>
+          <section class="stall"><button class="toilet-control" type="button" aria-label="Close toilet lid" aria-pressed="false"><img class="toilet" src="../assets/images/toilet.svg" alt="" /><svg class="toilet-cap" viewBox="0 0 120 160" aria-hidden="true"><path d="M34 84h52l4 29c2 16-8 29-30 29s-32-13-30-29z" /></svg></button><button class="stall-door" type="button" aria-label="Open stall door" aria-expanded="false">Stall door</button><button class="stall-lock" type="button" aria-label="Lock stall door" aria-pressed="false" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V7a5 5 0 0 1 10 0v3M5 10h14v11H5zM12 14v3" /></svg></button></section>
+          <section class="stall"><button class="toilet-control" type="button" aria-label="Close toilet lid" aria-pressed="false"><img class="toilet" src="../assets/images/toilet.svg" alt="" /><svg class="toilet-cap" viewBox="0 0 120 160" aria-hidden="true"><path d="M34 84h52l4 29c2 16-8 29-30 29s-32-13-30-29z" /></svg></button><button class="stall-door" type="button" aria-label="Open stall door" aria-expanded="false">Stall door</button><button class="stall-lock" type="button" aria-label="Lock stall door" aria-pressed="false" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V7a5 5 0 0 1 10 0v3M5 10h14v11H5zM12 14v3" /></svg></button></section>
+        </div>
+
+        <div class="sinks" aria-label="Three sinks">
+          <div class="sink"><img src="../assets/images/sink.jpg" alt="" /></div>
+          <div class="sink"><img src="../assets/images/sink.jpg" alt="" /></div>
+          <div class="sink"><img src="../assets/images/sink.jpg" alt="" /></div>
+        </div>
+
+        <button class="trash-can trash-can--one" type="button" disabled aria-label="Trash can one. Drag it to the bathroom door to barricade the entrance, or use the arrow keys to move it.">
+          <img class="trash-can-image" src="../assets/images/trash-can.svg" alt="" />
+        </button>
+        <button class="trash-can trash-can--two" type="button" disabled aria-label="Trash can two. Drag it to the bathroom door to barricade the entrance, or use the arrow keys to move it.">
+          <img class="trash-can-image" src="../assets/images/trash-can.svg" alt="" />
+        </button>
+
+        <button class="main-door" type="button" aria-label="Open bathroom door" aria-expanded="false">Door</button>
+      </section>
+    </main>
+    <script src="../scripts/bathroom-layout.js"></script>
+  </body>
+</html>

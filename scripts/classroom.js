@@ -35,7 +35,7 @@ answerButtons.forEach((button) => {
     recordAnswer(button.dataset.answer);
 
     if (safetyQuestionIndex === safetyQuestions.length - 1) {
-      window.location.href = 'end-page2.html';
+      window.location.href = '../end-page2.html';
       return;
     }
 
