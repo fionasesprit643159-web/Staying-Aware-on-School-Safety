@@ -1,0 +1,9 @@
+{
+  "name": "Shooting Safety | Practice & Reflect",
+  "short_name": "Shooting Safety",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#e8e2c5",
+  "theme_color": "#60693a",
+  "description": "A calm, supportive school safety practice and reflection app."
+}
