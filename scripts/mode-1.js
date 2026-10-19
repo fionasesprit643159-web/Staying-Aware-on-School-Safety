@@ -1,7 +1,9 @@
-const buildingButtons = document.querySelectorAll(".building-button");
-
-buildingButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-        // Add ze links here when yall r done w those
+["BuildA", "BuildB", "BuildF", "BuildG"].forEach((buildingId) => {
+    document.getElementById(buildingId).addEventListener("click", () => {
+        window.location.href = "classroom-layout.html";
     });
+});
+
+document.getElementById("BuildE").addEventListener("click", () => {
+    window.location.href = "bathroom-layout.html";
 });
