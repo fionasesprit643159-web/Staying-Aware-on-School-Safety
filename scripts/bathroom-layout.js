@@ -155,9 +155,7 @@ if (
       return;
     }
 
-    checklistPanel.hidden = true;
-    checklistPanel.classList.remove("is-open");
-    timerStatus?.focus();
+    window.location.href = "../end-page.html";
   });
 
   window.startBathroomChecklist = () => {
