@@ -178,7 +178,7 @@ if (
 }
 
 if (bathroom && mainDoor && trashCans.length) {
-  const dragSpeed = 0.45;
+  const dragSpeed = 1;
 
   const moveTrashCan = (can, left, top) => {
     const maxLeft = bathroom.clientWidth - can.offsetWidth;
@@ -259,7 +259,7 @@ if (timerPanel && timerReadout && timerStatus) {
   const popDelay = 5_000 + Math.floor(Math.random() * 15_001);
 
   window.setTimeout(() => {
-    const durations = [30, 45, 60];
+    const durations = [20, 30, 45];
     const duration = durations[Math.floor(Math.random() * durations.length)];
     const endTime = Date.now() + duration * 1000;
 
