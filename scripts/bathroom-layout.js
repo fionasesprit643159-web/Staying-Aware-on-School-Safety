@@ -155,7 +155,7 @@ if (
       return;
     }
 
-    window.location.href = "../end-page.html";
+    window.location.href = "end-page.html";
   });
 
   window.startBathroomChecklist = () => {

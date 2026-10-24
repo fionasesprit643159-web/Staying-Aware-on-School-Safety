@@ -8,6 +8,7 @@ const appShell = document.querySelector('.app-shell');
 const timerQuestion = document.querySelector('.timer-question');
 const timerQuestionTitle = document.querySelector('#timer-question-title');
 const answerButtons = document.querySelectorAll('.answer-buttons button');
+const resultsButton = document.querySelector('.results-button');
 let layoutIsFrozen = false;
 let safetyQuestionIndex = 0;
 const answerLog = [];
@@ -35,13 +36,22 @@ answerButtons.forEach((button) => {
     recordAnswer(button.dataset.answer);
 
     if (safetyQuestionIndex === safetyQuestions.length - 1) {
-      window.location.href = '../end-page2.html';
+      timerQuestionTitle.textContent = 'Safety check complete.';
+      answerButtons.forEach((answerButton) => {
+        answerButton.hidden = true;
+      });
+      resultsButton.hidden = false;
+      resultsButton.focus();
       return;
     }
 
     safetyQuestionIndex += 1;
     timerQuestionTitle.textContent = safetyQuestions[safetyQuestionIndex];
   });
+});
+
+resultsButton.addEventListener('click', () => {
+  window.location.href = 'end-page.html';
 });
 
 const startingTimes = [30, 60, 120];

@@ -8,14 +8,6 @@ if (startButton) {
   });
 }
 
-// Interactions for the info button will be added here.
-const infoButton = document.querySelector('#info-button');
-if (infoButton) {
-  infoButton.addEventListener('click', () => {
-    window.location.href = 'pages/information.html';
-  });
-}
-
 // Interactions for the back button will be added here.
 const backButton = document.querySelector('#back-button');
 if (backButton) {

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#173f17">
-<meta name="description" content="A calm, supportive school safety practice and reflection app."><link rel="manifest" href="manifest.webmanifest">
+<meta name="description" content="A calm, supportive school safety practice and reflection app."><link rel="manifest" href="../manifest.webmanifest">
 <title>End Page | Shooting Safety</title>
 <style>
 :root {
@@ -315,7 +315,7 @@ a { color: var(--accent); }
     </section>
   </section>
 
-  <div class="actions"><button class="btn secondary" onclick="window.scrollTo({top:0,behavior:'smooth'})">← &nbsp;Back to beginning</button></div>
+  <div class="actions"><button class="btn secondary" onclick="window.location.href='../index.html'">← &nbsp;Back to beginning</button></div>
   <p class="footnote">This practice is for learning, not a test. Follow your school’s official emergency procedures.</p>
 </section>
 </main><div id="toast" class="toast" role="status" aria-live="polite"></div>
@@ -331,7 +331,7 @@ try {
 }
 loadSimulatorOutcome();
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
-  navigator.serviceWorker.register('sw.js').catch(() => {});
+  navigator.serviceWorker.register('../sw.js').catch(() => {});
 }
 
 </script></body></html>

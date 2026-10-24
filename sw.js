@@ -2,7 +2,7 @@ const CACHE='shooting-safety-v5';
 const ASSETS=[
   './',
   './index.html',
-  './end-page.html',
+  './pages/end-page.html',
   './manifest.webmanifest',
   './styles/main.css',
   './styles/map-selector.css',
