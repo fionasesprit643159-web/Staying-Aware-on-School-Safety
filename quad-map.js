@@ -284,8 +284,7 @@ confirmAnswerButton.addEventListener('click', () => {
   recordedAnswers[questionIndex] = selectedAnswer;
   questionIndex += 1;
   if (questionIndex >= questions.length) {
-    dialogMode = null;
-    dropQuestion.close();
+    window.location.href = 'end-page.html';
     return;
   }
   showCurrentQuestion();
