@@ -1,4 +1,4 @@
-const CACHE='shooting-safety-v5';
+const CACHE='shooting-safety-v6';
 const ASSETS=[
   './',
   './index.html',
@@ -12,6 +12,10 @@ const ASSETS=[
   './scripts/app.js',
   './scripts/map-selector.js',
   './scripts/classroom.js',
+  './scripts/bathroom-layout.js',
+  './scripts/mode-1.js',
+  './quad-timer.js',
+  './quad-map.js',
   './pages/information.html',
   './pages/map-selector.html',
   './pages/bathroom-layout.html',
@@ -19,7 +23,8 @@ const ASSETS=[
   './pages/outdoor-layout.html',
   './pages/mode-1.html',
   './pages/second.html',
-  './assets/images/map.png'
+  './assets/images/map.png',
+  './assets/images/map2import.png'
 ];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('shooting-safety-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
