@@ -8,12 +8,41 @@
     <link rel="stylesheet" href="../styles/outdoor-layout.css" />
   </head>
   <body>
-    <main class="site-plan" aria-label="Outdoor site layout">
+    <dialog class="drop-question" id="drop-question" aria-labelledby="drop-question-title">
+      <p class="question-progress" id="question-progress" hidden></p>
+      <h1 id="drop-question-title" aria-live="polite">Your belongings are slowing you down. Do you want to drop them?</h1>
+      <div class="drop-question-actions" id="answer-actions">
+        <button class="drop-answer drop-answer-no" id="answer-no" type="button">No</button>
+        <button class="drop-answer drop-answer-yes" id="answer-yes" type="button">Yes</button>
+      </div>
+      <p class="answer-confirmation" id="answer-confirmation" role="status" hidden></p>
+      <div class="drop-question-actions" id="answer-confirmation-actions" hidden>
+        <button class="drop-answer drop-answer-no" id="change-answer" type="button">Change answer</button>
+        <button class="drop-answer drop-answer-yes" id="confirm-answer" type="button">Confirm answer</button>
+      </div>
+    </dialog>
+    <dialog class="drop-question" id="exit-confirmation" aria-labelledby="exit-confirmation-title">
+      <h1 id="exit-confirmation-title">Exited out the quad</h1>
+      <div class="drop-question-actions">
+        <button class="drop-answer drop-answer-yes" id="exit-confirmation-close" type="button">Done</button>
+      </div>
+    </dialog>
+    <div class="quad-timer" role="timer" aria-label="Countdown timer">
+      <span class="quad-timer-value" id="timer-value">--:--</span>
+    </div>
+    <div class="map-controls" role="group" aria-label="Map zoom controls">
+      <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
+      <output id="zoom-level" aria-live="polite">100%</output>
+      <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+      <button type="button" id="reset-view">Reset</button>
+    </div>
+    <div class="map-viewport" id="map-viewport" role="region" aria-label="Quad map. Drag the map to pan when zoomed in.">
+      <main class="site-plan" aria-label="Outdoor site layout">
       <section class="grounds" aria-label="Enclosed outdoor area">
-        <div class="tree tree-top-left" role="img" aria-label="Tree canopy"><span>Tree</span></div>
-        <div class="tree tree-bottom-left" role="img" aria-label="Tree canopy"><span>Tree</span></div>
-        <div class="tree tree-top-right" role="img" aria-label="Tree canopy"><span>Tree</span></div>
-        <div class="tree tree-bottom-right" role="img" aria-label="Tree canopy"><span>Tree</span></div>
+        <div class="tree tree-top-left" role="group" aria-label="Tree canopy"><span>Tree</span></div>
+        <div class="tree tree-bottom-left" role="group" aria-label="Tree canopy"><span>Tree</span></div>
+        <div class="tree tree-top-right" role="group" aria-label="Tree canopy"><span>Tree</span></div>
+        <div class="tree tree-bottom-right" role="group" aria-label="Tree canopy"><span>Tree</span></div>
 
         <div class="tables" aria-label="Eight tables">
           <div class="table">Table</div><div class="table">Table</div>
@@ -23,8 +52,54 @@
         </div>
       </section>
 
-      <div class="gate gate-left" role="img" aria-label="Gate">Gate</div>
-      <div class="gate gate-right" role="img" aria-label="Gate">Gate</div>
-    </main>
+      <div class="backpack-drop" id="dropped-backpack" aria-hidden="true">
+        <svg viewBox="0 0 100 110" role="img" aria-label="Dropped backpack">
+          <path d="M35 20v-5c0-8 6-13 15-13s15 5 15 13v5" fill="none" stroke="#5f351f" stroke-width="7" stroke-linecap="round" />
+          <path d="M27 23c0-7 6-12 13-12h20c7 0 13 5 13 12v8h7c8 0 14 7 14 15v43c0 9-7 16-16 16H22c-9 0-16-7-16-16V46c0-8 6-15 14-15h7z" fill="#c46428" stroke="#080808" stroke-width="5" stroke-linejoin="round" />
+          <path d="M26 36h48v13H26z" fill="#f5d9c6" stroke="#080808" stroke-width="4" />
+          <path d="M25 59c0-5 4-9 9-9h32c5 0 9 4 9 9v25c0 5-4 9-9 9H34c-5 0-9-4-9-9z" fill="#e8a16e" stroke="#080808" stroke-width="4" />
+          <path d="M50 51v12m-7 0h14" stroke="#5f351f" stroke-width="4" stroke-linecap="round" />
+          <path d="M18 39 9 49v38c0 6 3 11 8 14m65-62 9 10v38c0 6-3 11-8 14" fill="none" stroke="#5f351f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+
+      <button class="trashcan trashcan-left" type="button" aria-label="Trash can 1. Drag onto a gate to block it">
+        <svg viewBox="0 0 64 80" aria-hidden="true"><path d="M9 16h46l-5 57H14z" fill="#287d92" stroke="#163e49" stroke-width="4" stroke-linejoin="round"/><path d="M6 13h52v9H6zM18 8h28" fill="none" stroke="#163e49" stroke-width="5" stroke-linecap="round"/><path d="M20 29v34m12-34v34m12-34v34" stroke="#8ad4dc" stroke-width="4" stroke-linecap="round"/></svg>
+      </button>
+      <button class="trashcan trashcan-right" type="button" aria-label="Trash can 2. Drag onto a gate to block it">
+        <svg viewBox="0 0 64 80" aria-hidden="true"><path d="M9 16h46l-5 57H14z" fill="#287d92" stroke="#163e49" stroke-width="4" stroke-linejoin="round"/><path d="M6 13h52v9H6zM18 8h28" fill="none" stroke="#163e49" stroke-width="5" stroke-linecap="round"/><path d="M20 29v34m12-34v34m12-34v34" stroke="#8ad4dc" stroke-width="4" stroke-linecap="round"/></svg>
+      </button>
+      <button class="trashcan trashcan-third" type="button" aria-label="Trash can 3. Drag onto a gate to block it">
+        <svg viewBox="0 0 64 80" aria-hidden="true"><path d="M9 16h46l-5 57H14z" fill="#287d92" stroke="#163e49" stroke-width="4" stroke-linejoin="round"/><path d="M6 13h52v9H6zM18 8h28" fill="none" stroke="#163e49" stroke-width="5" stroke-linecap="round"/><path d="M20 29v34m12-34v34m12-34v34" stroke="#8ad4dc" stroke-width="4" stroke-linecap="round"/></svg>
+      </button>
+      <button class="trashcan trashcan-fourth" type="button" aria-label="Trash can 4. Drag onto a gate to block it">
+        <svg viewBox="0 0 64 80" aria-hidden="true"><path d="M9 16h46l-5 57H14z" fill="#287d92" stroke="#163e49" stroke-width="4" stroke-linejoin="round"/><path d="M6 13h52v9H6zM18 8h28" fill="none" stroke="#163e49" stroke-width="5" stroke-linecap="round"/><path d="M20 29v34m12-34v34m12-34v34" stroke="#8ad4dc" stroke-width="4" stroke-linecap="round"/></svg>
+      </button>
+
+      <button class="gate gate-left" type="button" aria-label="Left gate" aria-expanded="false">Gate</button>
+      <button class="gate gate-right" type="button" aria-label="Right gate" aria-expanded="false">Gate</button>
+      <button class="gate-action gate-action-left" type="button" hidden>Run for the nearest class</button>
+      <button class="gate-action gate-action-right" type="button" hidden>Run for the nearest exit</button>
+      <div class="gate-warning gate-warning-left" id="left-gate-warning" role="status" aria-live="assertive" hidden>
+        <span>SHOOTER IS NEARBY</span><button class="fight-action" type="button">Fight</button>
+      </div>
+      <div class="gate-warning gate-warning-right" id="right-gate-warning" role="status" aria-live="assertive" hidden>
+        <span>SHOOTER IS NEARBY</span><button class="fight-action" type="button">Fight</button>
+      </div>
+      <div class="quad-runner" id="quad-runner" role="img" aria-label="Shooter moving around the quad">
+        <svg viewBox="0 0 48 64" aria-hidden="true">
+          <circle cx="25" cy="8" r="6" />
+          <path class="runner-body" d="M23 17 18 35l11 4 6-17c-2-4-6-6-12-5Z" />
+          <path class="runner-arm runner-arm-back" d="m22 20-10 8-7-4" />
+          <path class="runner-arm runner-arm-front" d="m31 22 9 7-4 8" />
+          <path class="runner-leg runner-leg-back" d="m22 36-9 11-8 1" />
+          <path class="runner-leg runner-leg-front" d="m29 38 9 8-3 10" />
+        </svg>
+      </div>
+      <div class="fight-status" id="fight-status" role="status" hidden>Fight action selected. Encounter ended.</div>
+      </main>
+    </div>
+    <script src="../quad-timer.js"></script>
+    <script src="../quad-map.js"></script>
   </body>
 </html>
